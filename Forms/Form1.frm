@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form Form1 
-   Caption         =   "MMTimer with PostMessage in .tlb"
+   Caption         =   "MMTimer"
    ClientHeight    =   3975
    ClientLeft      =   60
    ClientTop       =   450
@@ -207,13 +207,21 @@ Private Sub Form_Load()
 
 #If withoutTlb Then
     Me.Caption = "MMTimer with PostMessage declared in Module MTimer.bas"
-#Else
+#ElseIf withTlb Then
     Me.Caption = "MMTimer with PostMessage in .tlb (usesgetlasterror=off)"
+#ElseIf withAsmFnc Then
+    Me.Caption = "MMTimer with PostMessage in VirtualMemory Asm-function"
 #End If
     m_TimerIndex1 = -1
     m_TimerIndex2 = -1
     BtnStartStop1.Caption = "Start"
     BtnStartStop2.Caption = "Start"
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+#If withAsmFnc Then
+    MVirtualMem.DeleteAsmCallback
+#End If
 End Sub
 
 Private Sub BtnStartAllTimers_Click()
@@ -226,6 +234,7 @@ End Sub
 Private Sub BtnStartStop1_Click()
     m_TimerIndex1 = OnBtnStartStop(BtnStartStop1, Text1, Picture1, Tim1Lbl0, LblTimerIndex1, LblTimerID1, m_TimerIndex1)
 End Sub
+
 Private Sub Picture1_KeyPress(KeyAscii As Integer)
     OnKeyPress MTimer.Timers(m_TimerIndex1), Label1, Tim1Lbl1
 End Sub
@@ -249,7 +258,7 @@ Private Function OnBtnStartStop(BtnStartStop As CommandButton, Txt As TextBox, P
         BtnStartStop.Caption = "Stop"
         Dim Interval As Long: Interval = Txt.Text
         LblDT.Caption = Timer
-        OnBtnStartStop = MTimer.StartTimer(PB.hwnd, Interval, TimerIndex_in)
+        OnBtnStartStop = MTimer.StartTimer(PB.hWnd, Interval, TimerIndex_in)
         LblI.Caption = OnBtnStartStop
         LblID.Caption = MTimer.Timers(OnBtnStartStop).TimerID
     Else

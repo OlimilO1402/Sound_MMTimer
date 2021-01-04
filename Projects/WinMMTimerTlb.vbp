@@ -1,15 +1,17 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{1885A782-3B08-49D2-B05C-1DE07086C269}#1.0#0#..\PostMessageTLB.tlb#PostMessageTLB
 Form=..\Forms\Form1.frm
+Module=MTimer2; ..\Modules\MTimer2.bas
 Module=MTimer; ..\Modules\MTimer.bas
 IconForm="Form1"
 Startup="Form1"
 HelpFile=""
-Title="WinMMtimerWotlb"
-ExeName32="WinMMTimerWoTlb.exe"
+Title="WinMMTimerTlb"
+ExeName32="WinMMTimerTlb.exe"
 Path32=".."
 Command32=""
-Name="WinMMTimerWoTlb"
+Name="WinMMTimerTlb"
 HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
@@ -17,7 +19,7 @@ MinorVer=0
 RevisionVer=0
 AutoIncrementVer=0
 ServerSupportFiles=0
-CondComp="withoutTlb = 1"
+CondComp="withTlb = 1"
 CompilationType=0
 OptimizationType=0
 FavorPentiumPro(tm)=0
