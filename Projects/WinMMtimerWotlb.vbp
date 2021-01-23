@@ -1,7 +1,8 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
-Form=..\Forms\Form1.frm
 Module=MTimer; ..\Modules\MTimer.bas
+Form=..\Forms\Form1.frm
+ResFile32="..\Resources\MyRes.RES"
 IconForm="Form1"
 Startup="Form1"
 HelpFile=""
@@ -14,9 +15,13 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=0
-AutoIncrementVer=0
+RevisionVer=1
+AutoIncrementVer=1
 ServerSupportFiles=0
+VersionCompanyName="MBO-Ing.com"
+VersionFileDescription="MMTimer"
+VersionLegalCopyright="MBO-Ing.com"
+VersionProductName="MMTimer"
 CondComp="withoutTlb = 1"
 CompilationType=0
 OptimizationType=0
