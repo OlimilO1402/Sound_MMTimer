@@ -1,0 +1,4 @@
+VBGROUP 5.0
+StartupProject=Projects\WinMMtimerWotlb.vbp
+Project=Projects\WinMMTimerTlb.vbp
+Project=Projects\WinMMTimerAsm.vbp
